@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+app_name = 'sys'
 urlpatterns = [
     path('signup', views.signup.as_view(), name='signup'),
     path('assign', views.assign_a_task.as_view(), name='assign'),
