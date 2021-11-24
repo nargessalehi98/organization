@@ -142,7 +142,7 @@ class remove_an_employee(GenericAPIView, LoginRequiredMixin):
         Employee = models.employee.objects.get(full_name=data['applicant'])
         Manager = models.manager.objects.get(username=username)
         if Employee.organization == Manager.organization:
-            models.employee.objects.filter(full_name='narges salehi') \
+            models.employee.objects.filter(full_name=data['applicant']) \
                 .update(organization=" ")
             return True
 

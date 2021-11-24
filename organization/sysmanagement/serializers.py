@@ -11,22 +11,22 @@ class SignupSerializer(serializers.ModelSerializer):
         fields = ['full_name']
 
 
+class AssignATaskSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.task
+        fields = ['functor', 'name', 'description', 'organization']
+
+
 class ApplyForMembershipSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.RequestForMembership
-        fields = ['applicant', 'organization','description']
+        fields = ['applicant', 'organization', 'description']
 
 
 class ApplyForManagementSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.RequestForManagement
         fields = ['applicant', 'organization', 'description']
-
-
-class AssignATaskSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.task
-        fields = ['functor', 'name', 'description','organization']
 
 
 class TaskListSerializer(serializers.ModelSerializer):
@@ -45,4 +45,3 @@ class RemoveMembershipSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.RequestForMembership
         fields = ['applicant']
-
