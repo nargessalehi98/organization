@@ -27,6 +27,7 @@ The position they hold does not attribute these tasks to themselves or other use
 * [python](https://python.org/)
 * [Django](https://www.djangoproject.com/)
 * [Docker](https://www.docker.com/)
+* [Rest framework](https://www.django-rest-framework.org/)
 
 
 
@@ -37,11 +38,4 @@ Narges Salehi - nargessalehi998@gmail.com
 
 Project Link: [https://github.com/nargessalehi98/organization/](https://github.com/nargessalehi98/organization/)
 
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* [Rest framework](https://www.django-rest-framework.org/)
-* [Docker](https://docs.docker.com/)
 
