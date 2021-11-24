@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  sysmanagement:
+    environment:
+      DEBUG: 'True'
+      APP_MODE: 'DEVELOPMENT'
+      ALLOWED_HOST: localhost 0.0.0.0 *
+    volumes:
+    - . :/home/organization

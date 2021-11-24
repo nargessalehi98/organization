@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+
+    db:
+        image: m.docker-registry.ir/mysql:5.7
+        volumes:
+            - data_local_dbdata:/var/lib/newmysql
+        environment:
+            MYSQL_USER: news-app-db-user
+            MYSQL_PASSWORD: news-app-db-pass
+            MYSQL_ROOT_PASSWORD: news-app-db-pass
+            MYSQL_DB: news-app-database
+        ports:
+            - 5432:5432
+
+    sysmanagement:
+        image: myapp:6
+        command: bash -c "python manage.py makemigrations
+            && python manage.py migrate
+            && python manage.py runserver 0.0.0.0:8081"
+        environment:
+            DEBUG: 'FALSE'
+            APP_MODE: 'PRODUCTION'
+            DJANGO_SUPERUSER_USERNAME: 1
+            DB_HOST: db
+            DB_PORT: 5432
+            DB_NAME: news-app-database
+            DB_USER: news-app-db-user
+            DB_PASS: news-app-db-pass
+        ports:
+            - 8081:8081
+        depends_on:
+            - db
+volumes:
+    data_local_dbdata:
