@@ -44,7 +44,7 @@ class apply_for_membership(GenericAPIView, LoginRequiredMixin):
         if serializer.is_valid():
             if self.apply(serializer.validated_data):
                 serializer.save()
-                response = Response.BaseResponse(status.HTTP_200_OK, "Request for management registered.")
+                response = Response.BaseResponse(status.HTTP_200_OK, "Request for membership registered.")
                 return HttpResponse(str(response.get_response_body()))
         response = Response.BaseResponse(status.HTTP_400_BAD_REQUEST, "invalid data,try again.")
         return HttpResponse(str(response.get_response_body()))
@@ -99,7 +99,7 @@ class task_list(GenericAPIView, LoginRequiredMixin):
         if serializer.is_valid() and Manager.organization == serializer.data['organization']:
             data = models.task.objects.filter(organization=serializer.data['organization']) \
                 .order_by('dead_time')
-            response = Response.BaseResponse(status.HTTP_200_OK, data)
+            response = Response.BaseResponse(status.HTTP_200_OK, str(data))
             return HttpResponse(str(response.get_response_body()))
         return HttpResponse("error", status=400)
 
